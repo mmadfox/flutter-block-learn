@@ -1,37 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:esport/src/pages/match_page.dart';
-import 'package:esport/src/pages/result_page.dart';
-import 'package:esport/src/pages/tournament_page.dart';
-import 'package:esport/src/pages/notfound_page.dart';
+import 'package:esport/src/screens/screens.dart';
 
 class Routes {
-  static const homePage = '/';
-  static const tournamentPage = '/TournamentPage';
-  static const resultPage = '/ResultPage';
+  static const homeScreen = '/';
+  static const tournamentScreen = '/TournamenScreen';
+  static const messageScreen = '/MessageScreen';
+  static const timelineScreen = '/TimelineScreen';
+  static const historyScreen = '/HistoryScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     Route<dynamic> route;
 
     switch (settings.name) {
 
-      /// MatchPage
-      case Routes.homePage:
-        route = MaterialPageRoute(builder: (_) => MatchPage());
+      /// MatchScreen
+      case Routes.homeScreen:
+        route = MaterialPageRoute(builder: (_) => MatchScreen());
         break;
 
-      /// TournamentPage
-      case Routes.tournamentPage:
-        route = MaterialPageRoute(builder: (_) => TournamentPage());
+      /// TournamentScreen
+      case Routes.tournamentScreen:
+        route = MaterialPageRoute(builder: (_) => TournamentScreen());
         break;
 
-      /// ResultPage
-      case Routes.resultPage:
-        route = MaterialPageRoute(builder: (_) => ResultPage());
+      /// MessageScreen
+      case Routes.messageScreen:
+        route = MaterialPageRoute(builder: (_) => MessageScreen());
         break;
 
-      /// NotFoundPage
-      default:
-        route = MaterialPageRoute(builder: (_) => NotFoundPage());
+      /// TimelineScreen
+      case Routes.timelineScreen:
+        route = MaterialPageRoute(builder: (_) => TimelineScreen());
+        break;
+
+      /// TimelineScreen
+      case Routes.historyScreen:
+        route = MaterialPageRoute(builder: (_) => HistoryScreen());
+        break;
     }
 
     return route;
@@ -39,17 +44,23 @@ class Routes {
 }
 
 class NavigateTo {
-  static void resultPage(BuildContext context, {Object args}) {
-    Navigator.pushNamed(context, Routes.resultPage, arguments: args);
+  static void homeScreen(BuildContext context, {Object args}) {
+    Navigator.pushNamed(context, Routes.homeScreen, arguments: args);
   }
 
-  static void tournamentPage(BuildContext context, {Object args}) {
-    Navigator.pushNamed(context, Routes.tournamentPage, arguments: args);
+  static void tournamentScreen(BuildContext context, {Object args}) {
+    Navigator.pushNamed(context, Routes.tournamentScreen, arguments: args);
   }
 
-  static void matchPage(BuildContext context, {Object args}) {
-    Navigator.pushNamed(context, Routes.homePage, arguments: args);
+  static void messageScreen(BuildContext context, {Object args}) {
+    Navigator.pushNamed(context, Routes.messageScreen, arguments: args);
   }
 
-  static void undefinedPage(BuildContext context) => Navigator.pushNamed(context, '/undefined');
+  static void timelineScreen(BuildContext context, {Object args}) {
+    Navigator.pushNamed(context, Routes.timelineScreen, arguments: args);
+  }
+
+  static void historyScreen(BuildContext context, {Object args}) {
+    Navigator.pushNamed(context, Routes.historyScreen, arguments: args);
+  }
 }
